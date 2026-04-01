@@ -1,9 +1,5 @@
 # Jyoti Yadav — Portfolio
 
-A pixel-perfect replica of [theadarsh.dev](https://theadarsh.dev) built with **Next.js 14 App Router**, **Tailwind CSS**, and **Framer Motion**, personalised for Balaboina Jyoti Yadav.
-
----
-
 ## 🗂️ Project Structure
 
 ```
