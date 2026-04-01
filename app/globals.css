@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-h: 62px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f2f2f5;
+  color: #0d0d12;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Selection & Scrollbar ─────────────────────────────────── */
+::selection {
+  background: rgba(108, 99, 255, 0.18);
+  color: #0d0d12;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f2f2f5; }
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(180deg, #a89cff, #6c63ff); 
+  border-radius: 99px; 
+}
+::-webkit-scrollbar-thumb:hover { background: #6c63ff; }
+
+/* ─── App shell ─────────────────────────────────────────────── */
+#app-shell {
+  padding-top: var(--nav-h);
+  padding-right: 46px;
+}
+
+/* ─── Bento grid ────────────────────────────────────────────── */
+.bento-pills {
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+}
+
+/* ─── Blog carousel ─────────────────────────────────────────── */
+.carousel-slide {
+  display: none;
+  animation: fadeUp 0.35s ease;
+}
+.carousel-slide.active {
+  display: flex;
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
+  50%       { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+}
+
+/* ─── Scroll-reveal utility ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), 
+              transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Gradient text utility ────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #6c63ff 0%, #a89cff 50%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Frosted glass effect ─────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Accent border glow on hover ──────────────────────────── */
+.glow-on-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.glow-on-hover:hover {
+  border-color: #a89cff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+/* ─── Mobile ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #app-shell {
+    padding-right: 0;
+  }
+}
